@@ -1,0 +1,19 @@
+$def with (form)
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>microBrother</title>
+  </head>
+  <body>
+    <form action="/search" method="post">
+      <fieldset>
+        <legend>microBrother</legend>
+        $if not form.valid: <p class="error">There were errors.</p>
+        $:form.render()
+        <p>
+          <button type="submit">Find 'em!</button>
+        </p>
+      </fieldset>
+    </form>
+  </body>
+</html>

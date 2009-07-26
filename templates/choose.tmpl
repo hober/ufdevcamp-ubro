@@ -1,0 +1,26 @@
+$def with (cards, ncards)
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>microBrother: results</title>
+  </head>
+  <body>
+    <form action="/consolidate" method="post">
+      <fieldset>
+        <legend>microBrother results</legend>
+<ol>
+$for i in range(ncards):
+    <li class="vcard">
+      <input type="radio" name="card" value="$i" />
+      <input type="hidden" name="service-$i" value="$cards[i]['service']" />
+      <input type="hidden" name="username-$i" value="$cards[i]['username']" />
+      <span class="fn">$cards[i]['fn']</span>
+      <span class="nickname">$cards[i]['username']</span>
+      (<a href="$cards[i]['url']" class="url">$cards[i]['url']</a>)
+    </li>
+</ol>
+        <p><button type="submit">hCard!</button></p>
+      </fieldset>
+    </form>
+  </body>
+</html>
